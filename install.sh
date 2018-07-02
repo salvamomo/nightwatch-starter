@@ -17,8 +17,8 @@ remove_installer_and_starter_repo()
 
   rm -f basename $0
   if [ $? = 0 ]; then
-  	echo "${GREEN}DONE:${NC} Successfully removed "`basename $0`
-  fi  
+  	printf "${GREEN}DONE:${NC} Successfully removed "`basename $0`
+  fi
 }
 
 clone_starter()
