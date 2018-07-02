@@ -1,0 +1,41 @@
+{
+    "src_folders" : [
+        "./tests/nightwatch/tests/"
+    ],
+    "output_folder" : "./tests/nightwatch/reports",
+    "custom_commands_path" : "./tests/nightwatch/commands",
+    "custom_assertions_path" : "./tests/nightwatch/assertions",
+    "page_objects_path" : [
+        "./tests/nightwatch/pages"
+    ],
+    "globals_path" : "./tests/nightwatch/data/global.js",
+    "test_settings" : {
+        "default" : {
+            "debugEnabled": false
+        },
+        "ci" : {
+            "launch_url" : "http://{http_auth_user}:{http_auth_pass}@127.0.0.1:8000",
+            "disable_colors": true,
+            "output_folder" : "/home/jenkins/tests_reports/command-center/nightwatch/",
+            "selenium_port"  : 9515,
+            "selenium_host"  : "127.0.0.1",
+            "default_path_prefix" : "",
+            "selenium" : {
+                "start_process": false
+            },
+            "screenshots" : {
+                "enabled" : true,
+                "on_failure": true,
+                "path" : "/home/jenkins/tests_reports/command-center/nightwatch/reports/screenshots/chrome"
+            },
+            "desiredCapabilities": {
+                "browserName": "chrome",
+                "javascriptEnabled": true,
+                "cssSelectorsEnabled": true,
+                "chromeOptions": {
+                    "args": ["--headless", "window-size=1400,1000"]
+                }
+            }
+        }
+    }
+}
