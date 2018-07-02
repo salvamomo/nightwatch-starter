@@ -5,6 +5,8 @@ A simple starter kit for Nightwatch.js, with multiple setup approaches to choose
 
 Download the install.sh file into your project root, and execute it.
 
+    wget https://raw.githubusercontent.com/salvamomo/nightwatch-starter/master/install.sh ; sudo chmod +x install.sh ; ./install.sh
+
 #### NPM-Chromedriver.
 
 Use this if you simply one a simple and quick setup to start

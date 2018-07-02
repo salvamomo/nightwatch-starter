@@ -11,13 +11,13 @@ NC='\033[0m' # No Color
 remove_installer_and_starter_repo()
 {
   echo "Removing Nightwatch-starter repo from $NIGHTWATCH_STARTER_TMP."
-  echo "You'll be asked for sudo password"
+  echo "You might be asked for sudo password"
   sudo rm -r $NIGHTWATCH_STARTER_TMP
   echo "Removing "`basename $0`
 
   rm -f basename $0
   if [ $? = 0 ]; then
-  	printf "${GREEN}DONE:${NC} Successfully removed "`basename $0`
+  	printf "${GREEN}DONE:${NC} Successfully removed "`basename $0`"\n"
   fi
 }
 
