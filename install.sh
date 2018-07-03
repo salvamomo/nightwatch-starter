@@ -44,6 +44,7 @@ ensure_package_json()
 
 move_boilerplater_files()
 {
+  mkdir -p $NIGHTWATCH_DIR""nightwatch
   mv $NIGHTWATCH_STARTER_TMP""/base/nightwatch $NIGHTWATCH_DIR
 
   if [ $? = 0 ]; then
