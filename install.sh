@@ -74,10 +74,10 @@ move_boilerplate_files()
 
 execute_example_test()
 {
-  read -p "Run example test to verify installation? " -n 1 -r
+  read -p "Run example test to verify installation? (y/Y) " -n 1 -r
   if [[ $REPLY =~ ^[Yy]$ ]]
   then
-    `$NIGHTWATCH_EXEC --env=$1 tests/nightwatch/tests`
+    `$NIGHTWATCH_EXEC` --env=$1 tests/nightwatch/tests
   fi
 }
 
@@ -100,6 +100,8 @@ install_plain()
   echo "Chromedriver can be downloaded from https://sites.google.com/a/chromium.org/chromedriver/"
 
   printf "${YELLOW}IMPORTANT:${NC} If you change the binaries directory, make sure to update the nightwatch.json file accordingly.\n\n"
+
+  remove_installer_and_starter_repo
 }
 
 install_npm_chromedriver()
@@ -116,6 +118,7 @@ install_npm_chromedriver()
   cp $NIGHTWATCH_STARTER_TMP""/setup_files/npm_chromedriver/nightwatch.npm_chromedriver.json ./nightwatch.json
   cp $NIGHTWATCH_STARTER_TMP""/setup_files/npm_chromedriver/global.js $NIGHTWATCH_DIR""nightwatch/data/global.js
 
+  remove_installer_and_starter_repo
   execute_example_test "dev"
 }
 
@@ -135,6 +138,7 @@ install_npm_selenium()
   cp $NIGHTWATCH_STARTER_TMP""/setup_files/npm_selenium/nightwatch.npm_selenium.json ./nightwatch.json
   cp $NIGHTWATCH_STARTER_TMP""/setup_files/npm_selenium/nightwatch.conf.js ./nightwatch.conf.js
 
+  remove_installer_and_starter_repo
   execute_example_test "dev"
 }
 
@@ -159,6 +163,8 @@ install_ci()
 
   printf "${YELLOW}IMPORTANT:${NC} You'll normally want to make a copy of the .json file used for CI,
   and place it outside of the project directory in your server.\n\n"
+
+  remove_installer_and_starter_repo
 }
 
 echo "Choose installation type:"
@@ -176,5 +182,3 @@ case "$choice" in
   * ) printf "${RED}Invalid choice${NC}\n"
       exit 1;;
 esac
-
-remove_installer_and_starter_repo
