@@ -54,7 +54,7 @@ ensure_nightwatch()
 
     printf "${GREEN}DONE:${NC} Installed Nightwatch.js as a local npm dependency.\n"
     printf "Execute it by typing \"${GREEN}./node_modules/.bin/nightwatch${NC}\".\n"
-    NIGHTWATCH_EXEC=./node_modules/.bin/nightwatch
+    NIGHTWATCH_EXEC=node_modules/.bin/nightwatch
   fi
 }
 
@@ -75,9 +75,8 @@ move_boilerplate_files()
 execute_example_test()
 {
   read -p "Run example test to verify installation? (y/Y) " -n 1 -r
-  if [[ $REPLY =~ ^[Yy]$ ]]
-  then
-    `$NIGHTWATCH_EXEC` --env=$1 tests/nightwatch/tests
+  if [[ $REPLY =~ ^[Yy]$ ]]; then
+    ${NIGHTWATCH_EXEC} --env=$1 tests/nightwatch/tests
   fi
 }
 
