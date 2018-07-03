@@ -1,7 +1,7 @@
 var chromedriver = require('chromedriver');
 
 module.exports = {
-    "dev": {
+    "ci": {
         before : function(done) {
             chromedriver.start();
             done();

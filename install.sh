@@ -124,10 +124,11 @@ install_ci()
 
   printf "\n${GREEN}COMPLETED. CI INSTALLATION REQUIRES MANUAL STEPS, READ BELOW:${NC}\n\n"
 
-  printf "${YELLOW}IMPORTANT:${NC} You'll want to edit the generated nightwatch.json file, and replace the following placeholders: {http_auth_user}, {http_auth_pass}, {ci-user}, {project-name}\n"
+  printf "${YELLOW}IMPORTANT:${NC} You'll want to edit the generated nightwatch.json file, and replace the following placeholders:
+  {http_auth_user}, {http_auth_pass}, {ci-user}, {project-name}\n"
 
   printf "${YELLOW}IMPORTANT:${NC} You'll normally want to make a copy of the .json file used for CI,
-    and place it outside of the project directory in your server.\n\n"
+  and place it outside of the project directory in your server.\n\n"
 }
 
 echo "Choose installation type:"
