@@ -47,9 +47,9 @@ move_boilerplater_files()
   mv $NIGHTWATCH_STARTER_TMP""/base/nightwatch $NIGHTWATCH_DIR
 
   if [ $? = 0 ]; then
-  	printf "${GREEN}DONE:${NC} Moved base stack structure into $NIGHTWATCH_DIR/nightwatch.\n"
+  	printf "${GREEN}DONE:${NC} Moved base stack structure into $NIGHTWATCH_DIR""nightwatch.\n"
   else
-    printf "${RED}ERROR:${NC} Could not copy base stack files into $NIGHTWATCH_DIR/nightwatch.\n"
+    printf "${RED}ERROR:${NC} Could not copy base stack files into $NIGHTWATCH_DIR""nightwatch.\n"
     remove_installer_and_starter_repo
     exit 1
   fi
@@ -62,7 +62,6 @@ install_plain()
 
   cp $NIGHTWATCH_STARTER_TMP""/setup_files/nightwatch.plain.json ./nightwatch.json
 
-  remove_installer_and_starter_repo
 
   echo "COMPLETED:"
   echo "Download binaries for selenium and browser drivers into tests/bin..."
@@ -82,7 +81,7 @@ install_npm_chromedriver()
   move_boilerplater_files
 
   cp $NIGHTWATCH_STARTER_TMP""/setup_files/npm_chromedriver/nightwatch.npm_chromedriver.json ./nightwatch.json
-  cp $NIGHTWATCH_STARTER_TMP""/setup_files/npm_chromedriver/global.js $NIGHTWATCH_DIR/nightwatch/data/global.js
+  cp $NIGHTWATCH_STARTER_TMP""/setup_files/npm_chromedriver/global.js $NIGHTWATCH_DIR""nightwatch/data/global.js
 }
 
 install_npm_selenium()
@@ -98,7 +97,6 @@ install_npm_selenium()
 
   cp $NIGHTWATCH_STARTER_TMP""/setup_files/nightwatch.selenium.json ./nightwatch.json
   cp $NIGHTWATCH_STARTER_TMP""/setup_files/nightwatch.conf.js ./nightwatch.conf.js
-
 }
 
 install_ci()
@@ -128,3 +126,5 @@ case "$choice" in
   * ) printf "${RED}Invalid choice${NC}\n"
       exit 1;;
 esac
+
+remove_installer_and_starter_repo
