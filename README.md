@@ -15,9 +15,14 @@ Download the install.sh file into your project root, and execute it.
     
 After a succesful installation, you'll be able to run nightwatch tests. There is
 an example test included in the default setup. The environment name created by
-default is "dev" in most cases. So, after installation, simply run:
+default is "dev" in most cases (except in the CI setup, where it is "ci"). 
+So, after installation, simply run:
 
     nightwatch --env=dev tests/nightwatch/tests
+
+  or if nightwatch is installed just globally:
+  
+    ./node_modules/.bin/nightwatch --env=dev tests/nightwatch/tests/
 
 #### NPM-Chromedriver.
 Use this if you simply one a simple and quick setup to start

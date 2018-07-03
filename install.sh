@@ -2,6 +2,7 @@
 
 NIGHTWATCH_STARTER_TMP=/tmp/salvamomo/nightwatch-starter
 NIGHTWATCH_DIR=tests/
+NIGHTWATCH_EXEC=nightwatch
 BINARIES_DIR=tests/bin
 
 # Grabbed from https://en.wikipedia.org/wiki/ANSI_escape_code#Colors
@@ -41,6 +42,22 @@ ensure_package_json()
   fi
 }
 
+ensure_nightwatch()
+{
+  npm list --depth 1 --global nightwatch > /dev/null 2>&1
+
+  if [ $? = 0 ]; then
+    echo "Nightwatch.js is installed globally. No local installation needed."
+  else
+    echo "Nightwatch.js is not installed globally. Proceeding to local installation."
+    npm install nightwatch --save-dev
+
+    printf "${GREEN}DONE:${NC} Installed Nightwatch.js as a local npm dependency.\n"
+    printf "Execute it by typing \"${GREEN}./node_modules/.bin/nightwatch${NC}\".\n"
+    NIGHTWATCH_EXEC=./node_modules/.bin/nightwatch
+  fi
+}
+
 move_boilerplate_files()
 {
   mkdir -p $NIGHTWATCH_DIR""nightwatch
@@ -52,6 +69,15 @@ move_boilerplate_files()
     printf "${RED}ERROR:${NC} Could not copy base stack files into $NIGHTWATCH_DIR""nightwatch.\n"
     remove_installer_and_starter_repo
     exit 1
+  fi
+}
+
+execute_example_test()
+{
+  read -p "Run example test to verify installation? " -n 1 -r
+  if [[ $REPLY =~ ^[Yy]$ ]]
+  then
+    `$NIGHTWATCH_EXEC --env=$1 tests/nightwatch/tests`
   fi
 }
 
@@ -89,6 +115,8 @@ install_npm_chromedriver()
 
   cp $NIGHTWATCH_STARTER_TMP""/setup_files/npm_chromedriver/nightwatch.npm_chromedriver.json ./nightwatch.json
   cp $NIGHTWATCH_STARTER_TMP""/setup_files/npm_chromedriver/global.js $NIGHTWATCH_DIR""nightwatch/data/global.js
+
+  execute_example_test "dev"
 }
 
 install_npm_selenium()
@@ -106,6 +134,8 @@ install_npm_selenium()
 
   cp $NIGHTWATCH_STARTER_TMP""/setup_files/npm_selenium/nightwatch.npm_selenium.json ./nightwatch.json
   cp $NIGHTWATCH_STARTER_TMP""/setup_files/npm_selenium/nightwatch.conf.js ./nightwatch.conf.js
+
+  execute_example_test "dev"
 }
 
 install_ci()
