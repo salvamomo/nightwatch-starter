@@ -4,16 +4,21 @@ NIGHTWATCH_STARTER_TMP=/tmp/salvamomo/nightwatch-starter
 NIGHTWATCH_DIR=tests/
 BINARIES_DIR=tests/bin
 
+# Grabbed from https://en.wikipedia.org/wiki/ANSI_escape_code#Colors
 RED='\033[1;31m'
 GREEN='\033[1;32m'
+YELLOW='\033[1;31m'
 NC='\033[0m' # No Color
 
 remove_installer_and_starter_repo()
 {
-  echo "Removing Nightwatch-starter repo from $NIGHTWATCH_STARTER_TMP."
+  echo "Removing Nightwatch-starter setup filesrepo from."
   echo "You might be asked for sudo password"
+
   sudo rm -r $NIGHTWATCH_STARTER_TMP
-  echo "Removing "`basename $0`
+  if [ $? = 0 ]; then
+  	printf "${GREEN}DONE:${NC} Successfully removed $NIGHTWATCH_STARTER_TMP directory.\n"
+  fi
 
   rm -f basename $0
   if [ $? = 0 ]; then
@@ -61,14 +66,16 @@ install_plain()
   echo "Installation Type: Plain"
   clone_starter
 
-  cp $NIGHTWATCH_STARTER_TMP""/setup_files/nightwatch.plain.json ./nightwatch.json
+  cp $NIGHTWATCH_STARTER_TMP""/setup_files/plain/nightwatch.plain.json ./nightwatch.json
 
+  printf "${GREEN}COMPLETED. PLAIN INSTALLATION REQUIRES MANUAL STEPS, READ BELOW:${NC}\n"
 
-  echo "COMPLETED:"
   echo "Download binaries for selenium and browser drivers into tests/bin..."
-  echo "To choose a different directory, make sure to update the nightwatch.json file accordingly."
-}
+  echo "Selenium can be downloaded from https://www.seleniumhq.org/download/"
+  echo "Chromedriver can be downloaded from https://sites.google.com/a/chromium.org/chromedriver/"
 
+  printf "${YELLOW}IMPORTANT:${NC}To choose a different directory for the binaries, make sure to update the nightwatch.json file accordingly.\n"
+}
 
 install_npm_chromedriver()
 {

@@ -9,18 +9,22 @@
         "./tests/nightwatch/pages/example"
     ],
     "globals_path" : "./tests/nightwatch/data/global.js",
+    "selenium" : {
+        "start_process" : true,
+        "server_path" : "./tests/bin/selenium-server-standalone-3.13.0.jar",
+        "log_path" : "",
+        "port" : 34567,
+        "cli_args" : {
+            "webdriver.chrome.driver" : "./tests/bin/chromedriver"
+        }
+    },
     "test_settings" : {
         "default" : {
             "debugEnabled": false
         },
         "dev" : {
             "launch_url" : "http://127.0.0.1:8000",
-            "selenium_port"  : 9515,
-            "selenium_host"  : "127.0.0.1",
-            "default_path_prefix" : "",
-            "selenium" : {
-                "start_process": false
-            },
+            "selenium_port"  : 34567,
             "screenshots" : {
                 "enabled" : true,
                 "on_failure": true,
@@ -31,12 +35,6 @@
                 "chromeOptions": {
                     "args": []
                 }
-            }
-        },
-
-        "chrome" : {
-            "desiredCapabilities": {
-                "browserName": "chrome"
             }
         }
     }
