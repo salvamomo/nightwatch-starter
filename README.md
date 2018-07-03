@@ -8,8 +8,13 @@ A simple starter kit for Nightwatch.js, with multiple setup modes to choose from
 
 ## Installation
 
-Download the install.sh file into your project root, and execute it. You can do
-it by copying and pasting this command in your terminal:
+Download the install.sh file into your project root, and execute it. You'll want
+to execute this **outside** of any development containers you have, to have access
+to your web browsers. 
+
+**NOTE: No global dependencies will be installed** 
+
+You can run the installer by copying and pasting this command in your terminal:
 
     wget https://raw.githubusercontent.com/salvamomo/nightwatch-starter/master/install.sh ; sudo chmod +x install.sh ; ./install.sh
     

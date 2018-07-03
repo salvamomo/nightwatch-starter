@@ -36,9 +36,8 @@ clone_starter()
 ensure_package_json()
 {
   if [ ! -f ./package.json ]; then
-    printf "${RED}ERROR:${NC} package.json file not found. Run \"npm init\" before executing this installer.\n"
-    echo "You can run the installer again by typing \"./install.sh\""
-    exit 1
+    printf "${YELLOW}.json file not found. Starting creation${NC}.\n"
+    npm init
   fi
 }
 
