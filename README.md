@@ -34,17 +34,9 @@ So, after installation, simply run:
   
     ./node_modules/.bin/nightwatch --env=dev tests/nightwatch/tests/
 
-#### NPM-Chromedriver.
+## Setup modes
 
-Use this if you simply one a simple and quick setup to start
-writing automated browser tests for your project.
-
-#### NPM-Selenium.
-
-Use this if you need to run tests that execute in more than one browser. Very
-convenient if you plan to make it a more customized setup over time.
-
-#### Plain (Dependencies downloaded manually).
+#### 1.- Plain (Dependencies downloaded manually).
 
 Use this if you want to download manually dependencies 
 (selenium, chromedriver, etc). Recommended only for experienced
@@ -53,7 +45,17 @@ users.
 NOTE: Requires manual steps after installation, detailed as part of the 
 installation process.
 
-#### Simple CI.
+#### 2.- NPM-Selenium.
+
+Use this if you need to run tests that execute in more than one browser. Very
+convenient if you plan to make it a more customized setup over time.
+
+#### 3.- NPM-Chromedriver.
+
+Use this if you simply one a simple and quick setup to start
+writing automated browser tests for your project.
+
+#### 4.- Simple CI.
  
 This will set up an optimized nightwatch.json file for a simple CI stack.
 The file will be configured to use chromedriver, via npm, and in headless mode,
