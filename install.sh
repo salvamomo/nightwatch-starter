@@ -117,7 +117,10 @@ install_ci()
 
   npm install chromedriver --save-dev
 
+  move_boilerplate_files
+
   cp $NIGHTWATCH_STARTER_TMP""/setup_files/nightwatch.ci.json ./nightwatch.json
+  cp $NIGHTWATCH_STARTER_TMP""/setup_files/npm_chromedriver/global.js $NIGHTWATCH_DIR""nightwatch/data/global.js
 }
 
 echo "Choose installation type:"
