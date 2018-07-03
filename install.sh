@@ -119,8 +119,15 @@ install_ci()
 
   move_boilerplate_files
 
-  cp $NIGHTWATCH_STARTER_TMP""/setup_files/nightwatch.ci.json ./nightwatch.json
-  cp $NIGHTWATCH_STARTER_TMP""/setup_files/npm_chromedriver/global.js $NIGHTWATCH_DIR""nightwatch/data/global.js
+  cp $NIGHTWATCH_STARTER_TMP""/setup_files/ci/nightwatch_ci.json ./nightwatch.json
+  cp $NIGHTWATCH_STARTER_TMP""/setup_files/ci/global.js $NIGHTWATCH_DIR""nightwatch/data/global.js
+
+  printf "\n${GREEN}COMPLETED. CI INSTALLATION REQUIRES MANUAL STEPS, READ BELOW:${NC}\n\n"
+
+  printf "${YELLOW}IMPORTANT:${NC} You'll want to edit the generated nightwatch.json file, and replace the following placeholders: {http_auth_user}, {http_auth_pass}, {ci-user}, {project-name}\n"
+
+  printf "${YELLOW}IMPORTANT:${NC} You'll normally want to make a copy of the .json file used for CI,
+    and place it outside of the project directory in your server.\n\n"
 }
 
 echo "Choose installation type:"
