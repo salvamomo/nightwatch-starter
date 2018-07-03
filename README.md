@@ -1,5 +1,5 @@
 # Nightwatch Starter kit
-A simple starter kit for Nightwatch.js, with multiple setup approaches to choose from.
+A simple starter kit for Nightwatch.js, with multiple setup modes to choose from.
 
 ## Requirements
 
