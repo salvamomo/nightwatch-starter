@@ -167,9 +167,9 @@ install_ci()
 }
 
 echo "Choose installation type:"
-echo "    1) PLAIN              (No usage of npm)"
+echo "    1) Plain              (No usage of npm)"
 echo "    2) NPM-Selenium       (with Chromedriver and Geckodriver)"
-echo "    3) NPM-Chromedriver"
+echo "    3) NPM-Chromedriver   (Chromedriver via npm)"
 echo "    4) Simple CI          (Chromedriver via npm)"
 
 read choice
