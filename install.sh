@@ -73,7 +73,7 @@ move_boilerplate_files()
 
 execute_example_test()
 {
-  read -p "Run example test to verify installation? (y/Y) " -n 1 -r
+  read -p "Run example test to verify installation? (n/Y) " -n 1 -r
   if [[ $REPLY =~ ^[Yy]$ ]]; then
     ${NIGHTWATCH_EXEC} --env=$1 tests/nightwatch/tests
   fi
