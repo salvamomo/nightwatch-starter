@@ -16,7 +16,7 @@
         "ci" : {
             "launch_url" : "http://{http_auth_user}:{http_auth_pass}@127.0.0.1:8000",
             "disable_colors": true,
-            "output_folder" : "/home/jenkins/tests_reports/command-center/nightwatch/",
+            "output_folder" : "/home/{ci-user}/tests_reports/{project-name}/nightwatch/",
             "selenium_port"  : 9515,
             "selenium_host"  : "127.0.0.1",
             "default_path_prefix" : "",
@@ -26,7 +26,7 @@
             "screenshots" : {
                 "enabled" : true,
                 "on_failure": true,
-                "path" : "/home/jenkins/tests_reports/command-center/nightwatch/reports/screenshots/chrome"
+                "path" : "/home/{ci-user}/tests_reports//{project-name}/nightwatch/reports/screenshots/chrome"
             },
             "desiredCapabilities": {
                 "browserName": "chrome",

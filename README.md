@@ -13,7 +13,11 @@ Download the install.sh file into your project root, and execute it.
 
     wget https://raw.githubusercontent.com/salvamomo/nightwatch-starter/master/install.sh ; sudo chmod +x install.sh ; ./install.sh
     
-After the installation
+After a succesful installation, you'll be able to run nightwatch tests. There is
+an example test included in the default setup. The environment name created by
+default is "dev" in most cases. So, after installation, simply run:
+
+    nightwatch --env=dev tests/nightwatch/tests
 
 #### NPM-Chromedriver.
 Use this if you simply one a simple and quick setup to start
