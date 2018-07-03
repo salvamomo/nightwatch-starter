@@ -32,12 +32,6 @@
                     "args": []
                 }
             }
-        },
-
-        "chrome" : {
-            "desiredCapabilities": {
-                "browserName": "chrome"
-            }
         }
     }
 }

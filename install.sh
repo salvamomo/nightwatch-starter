@@ -37,14 +37,22 @@ ensure_package_json()
 {
   if [ ! -f ./package.json ]; then
     printf "${RED}ERROR:${NC} package.json file not found. Run \"npm init\" before executing this installer.\n"
+    echo "You can run the installer again by typing \"./install.sh\""
     exit 1
   fi
 }
 
 move_boilerplater_files()
 {
-  echo "complete"
   mv $NIGHTWATCH_STARTER_TMP""/base/nightwatch $NIGHTWATCH_DIR
+
+  if [ $? = 0 ]; then
+  	printf "${GREEN}DONE:${NC} Moved base stack structure into $NIGHTWATCH_DIR/nightwatch.\n"
+  else
+    printf "${RED}ERROR:${NC} Could not copy base stack files into $NIGHTWATCH_DIR/nightwatch.\n"
+    remove_installer_and_starter_repo
+    exit 1
+  fi
 }
 
 install_plain()
@@ -70,7 +78,11 @@ install_npm_chromedriver()
   clone_starter
 
   npm install chromedriver --save-dev
-  cp $NIGHTWATCH_STARTER_TMP""/setup_files/nightwatch.chromedriver.json ./nightwatch.json
+
+  move_boilerplater_files
+
+  cp $NIGHTWATCH_STARTER_TMP""/setup_files/npm_chromedriver/nightwatch.npm_chromedriver.json ./nightwatch.json
+  cp $NIGHTWATCH_STARTER_TMP""/setup_files/npm_chromedriver/global.js $NIGHTWATCH_DIR/nightwatch/data/global.js
 }
 
 install_npm_selenium()
