@@ -36,7 +36,7 @@ clone_starter()
 ensure_package_json()
 {
   if [ ! -f ./package.json ]; then
-    printf "${YELLOW}.json file not found. Starting creation${NC}.\n"
+    printf "${YELLOW} package.json file not found. Starting creation via npm init${NC}.\n"
     npm init
   fi
 }
