@@ -73,7 +73,7 @@ install_plain()
   echo "Selenium can be downloaded from https://www.seleniumhq.org/download/"
   echo "Chromedriver can be downloaded from https://sites.google.com/a/chromium.org/chromedriver/"
 
-  printf "${YELLOW}IMPORTANT:${NC} If you change the binaries directory, make sure to update the nightwatch.json file accordingly.\n"
+  printf "${YELLOW}IMPORTANT:${NC} If you change the binaries directory, make sure to update the nightwatch.json file accordingly.\n\n"
 }
 
 install_npm_chromedriver()
