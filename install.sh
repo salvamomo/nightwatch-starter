@@ -7,13 +7,13 @@ BINARIES_DIR=tests/bin
 # Grabbed from https://en.wikipedia.org/wiki/ANSI_escape_code#Colors
 RED='\033[1;31m'
 GREEN='\033[1;32m'
-YELLOW='\033[1;31m'
+YELLOW='\033[1;33m'
 NC='\033[0m' # No Color
 
 remove_installer_and_starter_repo()
 {
-  echo "Removing Nightwatch-starter setup filesrepo from."
-  echo "You might be asked for sudo password"
+  echo "Removing Nightwatch-starter setup files."
+  printf "${YELLOW}You might be asked for sudo password${NC}\n"
 
   sudo rm -r $NIGHTWATCH_STARTER_TMP
   if [ $? = 0 ]; then
@@ -32,12 +32,6 @@ clone_starter()
   git clone git@github.com:salvamomo/nightwatch-starter.git $NIGHTWATCH_STARTER_TMP
 }
 
-#ensure_nightwatch()
-#{
-#  # 127 = error response if nightwatch command is not found.
-#  echo "TBC"
-#}
-
 ensure_package_json()
 {
   if [ ! -f ./package.json ]; then
@@ -47,7 +41,7 @@ ensure_package_json()
   fi
 }
 
-move_boilerplater_files()
+move_boilerplate_files()
 {
   mkdir -p $NIGHTWATCH_DIR""nightwatch
   mv $NIGHTWATCH_STARTER_TMP""/base/nightwatch $NIGHTWATCH_DIR
@@ -66,15 +60,20 @@ install_plain()
   echo "Installation Type: Plain"
   clone_starter
 
+  move_boilerplate_files
+
+  mkdir -p $NIGHTWATCH_DIR""bin
+  touch $NIGHTWATCH_DIR""bin/.gitkeep
+
   cp $NIGHTWATCH_STARTER_TMP""/setup_files/plain/nightwatch.plain.json ./nightwatch.json
 
-  printf "${GREEN}COMPLETED. PLAIN INSTALLATION REQUIRES MANUAL STEPS, READ BELOW:${NC}\n"
+  printf "\n${GREEN}COMPLETED. PLAIN INSTALLATION REQUIRES MANUAL STEPS, READ BELOW:${NC}\n\n"
 
-  echo "Download binaries for selenium and browser drivers into tests/bin..."
+  echo "Download binaries for selenium and browser drivers into ${NIGHTWATCH_DIR}..."
   echo "Selenium can be downloaded from https://www.seleniumhq.org/download/"
   echo "Chromedriver can be downloaded from https://sites.google.com/a/chromium.org/chromedriver/"
 
-  printf "${YELLOW}IMPORTANT:${NC}To choose a different directory for the binaries, make sure to update the nightwatch.json file accordingly.\n"
+  printf "${YELLOW}IMPORTANT:${NC} If you change the binaries directory, make sure to update the nightwatch.json file accordingly.\n"
 }
 
 install_npm_chromedriver()
@@ -86,7 +85,7 @@ install_npm_chromedriver()
 
   npm install chromedriver --save-dev
 
-  move_boilerplater_files
+  move_boilerplate_files
 
   cp $NIGHTWATCH_STARTER_TMP""/setup_files/npm_chromedriver/nightwatch.npm_chromedriver.json ./nightwatch.json
   cp $NIGHTWATCH_STARTER_TMP""/setup_files/npm_chromedriver/global.js $NIGHTWATCH_DIR""nightwatch/data/global.js
