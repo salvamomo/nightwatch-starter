@@ -1,0 +1,53 @@
+{
+    "src_folders" : [
+        "./tests/nightwatch/tests/"
+    ],
+    "output_folder" : "./tests/nightwatch/reports",
+    "custom_commands_path" : "./tests/nightwatch/commands",
+    "custom_assertions_path" : "./tests/nightwatch/assertions",
+    "page_objects_path" : [
+        "./tests/nightwatch/pages/example"
+    ],
+    "globals_path" : "",
+    "selenium" : {
+        "start_process" : true,
+        "server_path" : "",
+        "log_path" : "",
+        "port" : 34567,
+        "cli_args" : {
+            "webdriver.chrome.driver" : "",
+            "webdriver.gecko.driver" : ""
+        }
+    },
+    "test_settings" : {
+        "default" : {
+            "debugEnabled": false
+        },
+        "dev" : {
+            "launch_url" : "http://127.0.0.1:8000",
+            "selenium_port"  : 34567,
+            "selenium_host"  : "127.0.0.1",
+            "screenshots" : {
+                "enabled" : true,
+                "on_failure": true,
+                "path" : "./tests/nightwatch/reports/screenshots/chrome"
+            },
+            "desiredCapabilities": {
+                "browserName": "chrome"
+            }
+        },
+        "firefox" : {
+            "launch_url" : "http://127.0.0.1:8000",
+            "selenium_port"  : 34567,
+            "selenium_host"  : "127.0.0.1",
+            "screenshots" : {
+                "enabled" : true,
+                "on_failure": true,
+                "path" : "./tests/nightwatch/reports/screenshots/chrome"
+            },
+            "desiredCapabilities": {
+                "browserName": "firefox"
+            }
+        }
+    }
+}

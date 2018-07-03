@@ -1,6 +1,12 @@
 # Nightwatch Starter kit
 A simple starter kit for Nightwatch.js, with multiple setup approaches to choose from.
 
+## Requirements
+
+  * Node.js
+  * Nightwatch ``npm install [-g] nightwatch``
+  * A valid package.json in your repository. ``npm init``
+
 ## Installation
 
 Download the install.sh file into your project root, and execute it.

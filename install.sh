@@ -102,8 +102,10 @@ install_npm_selenium()
   npm install chromedriver --save-dev
   npm install geckodriver --save-dev
 
-  cp $NIGHTWATCH_STARTER_TMP""/setup_files/nightwatch.selenium.json ./nightwatch.json
-  cp $NIGHTWATCH_STARTER_TMP""/setup_files/nightwatch.conf.js ./nightwatch.conf.js
+  move_boilerplate_files
+
+  cp $NIGHTWATCH_STARTER_TMP""/setup_files/npm_selenium/nightwatch.npm_selenium.json ./nightwatch.json
+  cp $NIGHTWATCH_STARTER_TMP""/setup_files/npm_selenium/nightwatch.conf.js ./nightwatch.conf.js
 }
 
 install_ci()
