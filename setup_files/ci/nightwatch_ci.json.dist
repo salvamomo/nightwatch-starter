@@ -6,7 +6,7 @@
     "custom_commands_path" : "./tests/nightwatch/commands",
     "custom_assertions_path" : "./tests/nightwatch/assertions",
     "page_objects_path" : [
-        "./tests/nightwatch/pages"
+            "./tests/nightwatch/pages/example"
     ],
     "globals_path" : "./tests/nightwatch/data/global.js",
     "test_settings" : {
