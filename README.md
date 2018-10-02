@@ -4,7 +4,8 @@ A simple starter kit for Nightwatch.js, with multiple setup modes to choose from
 ## Requirements
 
   * Node.js
-  * A valid package.json in your repository. You can create it by running ``npm init``
+  * Nightwatch.js (_npm install -g nightwatch_)
+  * A valid package.json in your repository (_recommended_, but not mandatory). 
 
 ## Installation
 
